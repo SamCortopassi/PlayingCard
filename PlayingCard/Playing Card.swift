@@ -13,12 +13,15 @@ struct PlayingCard
     var suit: Suit
     var rank: Rank
     
-    enum Suit {
+    enum Suit: String {
         case spades = "♠️"
         case hearts = "♥️"
         case diamonds = "♦️"
         case clubs = "♣️"
+        
+        static var all = [Suit.spades,.hearts,.diamonds,.clubs]
     }
+
     enum Rank {
         case ace
         case face(String)
@@ -32,10 +35,16 @@ struct PlayingCard
             case . face(let kind)where kind == "Q": return 12
             case . face(let kind)where kind == "K": return 13
             default: return 0
-
-
-
+            }
+        }
+        static var all: [Rank] {
+            var allRanks = [Rank.ace]
+            for pips in 2...10 {
+                allRanks.append(Rank.numeric(pips))
+            }
+            allRanks += [Rank.face("J"),.face("Q"),.face("K")]
+            return allRanks
             }
     }
     }
-}
+
