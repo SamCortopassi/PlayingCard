@@ -10,9 +10,9 @@ import UIKit
 
 class PlayingCardView: UIView {
     
-    var rank: Int = 5 { didSet { setNeedsDisplay() } }
-    var suit: String = "♥️"
-    var isFaceUp: Bool = true
+    var rank: Int = 5 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var suit: String = "♥️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var isFaceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
     
     private func centeredAttributedString( string: String, fontSize: CGFloat) -> NSAttributedString {
