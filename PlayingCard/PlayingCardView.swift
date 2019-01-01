@@ -36,6 +36,20 @@ class PlayingCardView: UIView {
         return label
     }
     
+    private func configureCornerLabel(_ label: UILabel) {
+        label.attributedText = cornerString
+        label.frame.size = CGSize.zero
+        label.sizeToFit()
+        label.isHidden = !isFaceUp
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        configureCornerLabel(upperLeftCornerLabel)
+        upperLeftCornerLabel.frame.origin = bounds.origin.offsetBy(dx: cornerOffset, dy: cornerOffset)
+    }
+    
     override func draw(_ rect: CGRect) {
         let roundedRect = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         roundedRect.addClip()
