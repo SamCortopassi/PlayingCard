@@ -93,7 +93,7 @@ extension CGRect {
     }
     var rightHalf: CGRect {
         return CGRect(x: midX, y: midY, width: width/2, height: height)
-        }
+    }
     func inset(by size: CGSize) -> CGRect {
         return insetBy(dx: size.width, dy: size.height)
     }
@@ -105,12 +105,13 @@ extension CGRect {
         let newHeight = height * scale
         return insetBy(dx: (width - newWidth) / 2, dy: height - newHeight) / 2)
     }
+}
     extension CGPoint {
         func offsetBy(dx: CGFloat, dy: CGFloat) -> CGFloat {
             return CGPoint(x: x+dx, y: y+dx)
         }
     }
-}
+
 
 
 
