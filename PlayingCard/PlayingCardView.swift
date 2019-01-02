@@ -103,7 +103,7 @@ extension CGRect {
     func zoom(by scale: CGFloat) -> CGRect {
         let newWidth = width * scale
         let newHeight = height * scale
-        return insetBy(dx: (width - newWidth) / 2, dy: height - newHeight) / 2)
+        return insetBy(dx: (width - newWidth) / 2, dy: (height - newHeight) / 2)
     }
 }
     extension CGPoint {
